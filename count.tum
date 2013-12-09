@@ -1,0 +1,16 @@
+#!./tumsim.py
+# Count up to 1000 in decimal
+[header]
+states=2
+#Blanks are not counted and are represented as character 0
+characters=2
+display=_0123456789
+instructions = 1,_,L 0,0,R 0,1,R 0,2,R 0,3,R 0,4,R 0,5,R 0,6,R 0,7,R 0,8,R 0,9,R
+             | 0,1,H 0,1,R 0,2,R 0,3,R 0,4,R 0,5,R 0,6,R 0,7,R 0,8,R 0,9,R 1,0,L
+
+[init]
+state=0
+pos=0
+motion=R
+memory=000
+

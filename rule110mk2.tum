@@ -1,0 +1,33 @@
+#!./tumsim.py
+# Simulate rule 110 1D Cellular Automata
+# 000 -> 0
+# 001 -> 1
+# 010 -> 1
+# 011 -> 1
+# 100 -> 0
+# 101 -> 1
+# 110 -> 1
+# 111 -> 0
+[header]
+states=6
+
+#0 - pass1a carry0 from left
+#1 - pass1b carry1 from left
+#2 - pass2a carry0 from right
+#3 - pass2b carry1 from right
+
+#Blanks are not counted and are represented as character 0
+characters=6
+display=_.@ABCD
+#                      .     @     A     B     C     D  
+#              blank   0     1    00    01    10    11 
+instructions = 2,_,L 0,A,R 1,B,R 0,A,R 1,B,R 0,A,R 1,B,R
+             | 2,_,L 0,C,R 1,D,R 0,C,R 1,D,R 0,C,R 1,D,R
+             | 0,_,R 2,.,L 3,@,L 2,.,L 3,@,L 2,.,L 3,@,L
+             | 0,_,R 2,@,L 3,@,L 2,@,L 3,@,L 2,@,L 3,.,L
+
+[init]
+state=0
+pos=1
+motion=R
+memory=_..............................................................................@

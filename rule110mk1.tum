@@ -1,0 +1,37 @@
+#!./tumsim.py
+# Simulate rule 110 1D Cellular Automata
+# 000 -> 0
+# 001 -> 1
+# 010 -> 1
+# 011 -> 1
+# 100 -> 0
+# 101 -> 1
+# 110 -> 1
+# 111 -> 0
+[header]
+states=6
+
+#0 - pass1
+#1 - pass2a carry0 from right
+#2 - pass2b carry1 from right
+#3 - pass3a carry0 from left
+#4 - pass3b carry1 from left
+#5 - pass4
+
+#Blanks are not counted and are represented as character 0
+characters=10
+display=_.@ABCDEFGH
+#                      .     @     A     B     C     D     E     F     G     H
+#              blank   0     1    000   001   010   011   100   101   110   111
+instructions = 1,_,L 0,A,R 0,H,R 0,A,R 0,A,R 0,H,R 0,H,R 0,A,R 0,A,R 0,H,R 0,H,R
+             | 3,_,R 1,A,L 2,C,L 1,A,L 1,A,L 2,C,L 2,C,L 1,E,L 1,E,L 2,G,L 2,G,L
+             | 3,_,R 1,B,L 2,D,L 1,B,L 1,B,L 2,D,L 2,D,L 1,F,L 1,F,L 2,H,L 2,H,L
+             | 5,_,L 3,A,R 4,C,R 3,A,R 3,B,R 4,C,R 4,D,R 3,A,R 3,B,R 4,C,R 4,D,R
+             | 5,_,L 3,E,R 4,G,R 3,E,R 3,F,R 4,G,R 4,H,R 3,E,R 3,F,R 4,G,R 4,H,R
+             | 0,_,R 5,.,L 5,@,L 5,.,L 5,@,L 5,@,L 5,@,L 5,.,L 5,@,L 5,@,L 5,.,L
+
+[init]
+state=0
+pos=1
+motion=R
+memory=_..............................................................................@

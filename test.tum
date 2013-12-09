@@ -1,0 +1,16 @@
+#!./tumsim.py
+#Add two numbers in unary
+[header]
+states=3
+characters=1
+display=_1
+instructions = 1,1,R 0,1,R
+             | 2,_,L 1,1,R
+             | 2,_,H 2,_,H
+
+[init]
+state=0
+pos=0
+motion=R
+memory=1111_11
+
